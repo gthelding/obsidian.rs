@@ -28,3 +28,7 @@ target
 # Claude
 .claude/worktrees
 docs/superpowers
+
+# Nix build results
+result
+result-*
