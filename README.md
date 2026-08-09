@@ -27,8 +27,8 @@ This repository is a flake. Pull it into your system flake (pin a branch or comm
 ```nix
 # flake.nix (consumer)
 {
-  inputs.obsidian-rs.url = "github:gthelding/obsidian.rs/rename-cli-binary-obsidian-rs";
-  # or after merge: github:epwalsh/obsidian.rs / github:gthelding/obsidian.rs
+  inputs.obsidian-rs.url = "github:gthelding/obsidian.rs/nix-flake";
+  # includes the obsidian-rs binary rename; pin a commit for reproducibility
 
   # ...
   # home.packages / environment.systemPackages:
@@ -51,8 +51,8 @@ Packages:
 One-off without a system flake:
 
 ```sh
-nix profile install github:gthelding/obsidian.rs/rename-cli-binary-obsidian-rs
-# or: nix run github:gthelding/obsidian.rs/rename-cli-binary-obsidian-rs -- --help
+nix profile install github:gthelding/obsidian.rs/nix-flake
+# or: nix run github:gthelding/obsidian.rs/nix-flake -- --help
 ```
 
 ## CLI
