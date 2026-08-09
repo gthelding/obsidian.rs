@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added a Nix flake (`flake.nix`) that packages `obsidian-rs`, `obsidian-mcp`, `obsidian-lsp`, and a default `obsidian-rs-tools` join of the CLI and MCP server for use as a flake input on NixOS/Home Manager.
 - LSP diagnostics now warn on trailing whitespace, including unsaved open buffers inside the vault.
 - Added LSP `textDocument/formatting` support for trimming trailing whitespace and normalizing parseable YAML frontmatter blocks.
 - Added LSP startup work-done progress while indexing the vault, with language-feature requests returning empty results until indexing is ready.

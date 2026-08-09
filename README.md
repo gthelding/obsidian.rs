@@ -20,6 +20,41 @@ When a note relies on a filename-derived ID instead of an explicit frontmatter `
 | [`obsidian-rs-mcp`](https://crates.io/crates/obsidian-rs-mcp) | [docs.rs/obsidian-rs-mcp](https://docs.rs/obsidian-rs-mcp) | MCP server so agents can interact with your vault |
 | [`obsidian-rs-lsp`](https://crates.io/crates/obsidian-rs-lsp) | [docs.rs/obsidian-rs-lsp](https://docs.rs/obsidian-rs-lsp) | A language server for vault editing in your IDE |
 
+## Nix
+
+This repository is a flake. Pull it into your system flake (pin a branch or commit) and install the packages you need:
+
+```nix
+# flake.nix (consumer)
+{
+  inputs.obsidian-rs.url = "github:gthelding/obsidian.rs/rename-cli-binary-obsidian-rs";
+  # or after merge: github:epwalsh/obsidian.rs / github:gthelding/obsidian.rs
+
+  # ...
+  # home.packages / environment.systemPackages:
+  #   inputs.obsidian-rs.packages.${pkgs.system}.obsidian-rs-tools  # CLI + MCP
+  #   inputs.obsidian-rs.packages.${pkgs.system}.obsidian-rs
+  #   inputs.obsidian-rs.packages.${pkgs.system}.obsidian-mcp
+  #   inputs.obsidian-rs.packages.${pkgs.system}.obsidian-lsp
+}
+```
+
+Packages:
+
+| Attribute | Binaries |
+|---|---|
+| `obsidian-rs-tools` (default) | `obsidian-rs`, `obsidian-mcp` |
+| `obsidian-rs` | `obsidian-rs` |
+| `obsidian-mcp` | `obsidian-mcp` |
+| `obsidian-lsp` | `obsidian-lsp` |
+
+One-off without a system flake:
+
+```sh
+nix profile install github:gthelding/obsidian.rs/rename-cli-binary-obsidian-rs
+# or: nix run github:gthelding/obsidian.rs/rename-cli-binary-obsidian-rs -- --help
+```
+
 ## CLI
 
 Install with Cargo:

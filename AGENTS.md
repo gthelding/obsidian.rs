@@ -12,6 +12,7 @@ This file provides guidance to coding agents when working in this repository.
 
 ## Workspace Structure
 
+- `flake.nix` / `flake.lock` — Nix flake packaging `obsidian-rs`, `obsidian-mcp`, `obsidian-lsp`, and default `obsidian-rs-tools` (CLI + MCP) for use as a flake input
 - `Cargo.toml` — workspace root
 - `obsidian-core/` — the core library crate
   - `src/lib.rs` — library entry point
